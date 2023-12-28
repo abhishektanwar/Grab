@@ -1,30 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Logo from './assets/logo.png';
-
-const Header = () => {
-  return (
-    <div className='header-contianer'>
-      <div className='logo-contianer'>
-        <img src={Logo} className='logo' />
-      </div>
-      <div className='nav-items'>
-        <ul>
-          <li className='h4 nav-item'>
-            Home
-          </li>
-          <li className='h4 nav-item'>About Us</li>
-          <li className='h4 nav-item'>Cart</li>
-        </ul>
-      </div>
-    </div>
-  )
-}
+import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import RestaurantCart from './components/RestaurantCard';
 
 const App = () => {
   return (
     <div className='app'>
       <Header />
+      <SearchBar />
+      <RestaurantCart />
     </div>
   )
 }

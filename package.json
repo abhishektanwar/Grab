@@ -18,6 +18,11 @@
   },
   "homepage": "https://github.com/abhishektanwar/Grab#readme",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/free-brands-svg-icons": "^6.5.1",
+    "@fortawesome/free-regular-svg-icons": "^6.5.1",
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
     "@types/jest": "^29.5.11",
     "@types/node": "^20.10.5",
     "@types/react": "^18.2.45",
