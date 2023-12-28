@@ -1,0 +1,15 @@
+.header-contianer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 5rem;
+  background-color: var(--base-background-color);
+}
+
+.nav-items {
+  display: flex;
+  align-items: center;
+}
+
+.nav-item {
+  margin-left: 1.4rem;
+}

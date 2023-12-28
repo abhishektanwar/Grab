@@ -1,0 +1,44 @@
+@import url('header.css');
+
+:root{
+  --base-background-color:#0ba708b7;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.h1 {
+  font-size: 3.4rem;
+}
+
+.h2 {
+  font-size: 3rem;
+}
+
+.h3 {
+  font-size: 2.6rem;
+}
+
+.h4 {
+  font-size: 2.2rem;
+}
+
+.h5 {
+  font-size: 1.8;
+}
+
+.h6 {
+  font-size: 1.4;
+}
