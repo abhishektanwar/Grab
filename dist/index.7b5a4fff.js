@@ -2948,7 +2948,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
-var _logoPng = require("./logo.png");
+var _logoPng = require("./assets/logo.png");
 var _logoPngDefault = parcelHelpers.interopDefault(_logoPng);
 const Header = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -3052,7 +3052,7 @@ $RefreshReg$(_c1, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./logo.png":"7Y8Ia"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./assets/logo.png":"kha1e"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27407,10 +27407,10 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"7Y8Ia":[function(require,module,exports) {
-module.exports = require("8905a148802a0301").getBundleURL("2wJmF") + "logo.3eb009db.png" + "?" + Date.now();
+},{"7422ead32dcc1e6b":"786KC"}],"kha1e":[function(require,module,exports) {
+module.exports = require("b0c10bcc82eea8e5").getBundleURL("2wJmF") + "logo.f0c67fd0.png" + "?" + Date.now();
 
-},{"8905a148802a0301":"lgJ39"}],"lgJ39":[function(require,module,exports) {
+},{"b0c10bcc82eea8e5":"lgJ39"}],"lgJ39":[function(require,module,exports) {
 "use strict";
 var bundleURL = {};
 function getBundleURLCached(id) {

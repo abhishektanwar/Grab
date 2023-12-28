@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Logo from './logo.png';
+import Logo from './assets/logo.png';
 
 const Header = () => {
   return (
