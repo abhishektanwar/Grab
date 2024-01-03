@@ -2954,43 +2954,71 @@ var _searchBar = require("./components/SearchBar");
 var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _restaurantCard = require("./components/RestaurantCard");
 var _restaurantCardDefault = parcelHelpers.interopDefault(_restaurantCard);
+var _s = $RefreshSig$();
 const App = ()=>{
+    _s();
+    const [restaurants, setRestaurants] = (0, _react.useState)([]);
+    (0, _react.useEffect)(()=>{
+        fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9942072&lng=77.6666151&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING").then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            console.log(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+            setRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        });
+    }, []);
+    if (restaurants.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
+        fileName: "App.tsx",
+        lineNumber: 22,
+        columnNumber: 12
+    }, undefined);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "app",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "App.tsx",
-                lineNumber: 10,
+                lineNumber: 27,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {}, void 0, false, {
                 fileName: "App.tsx",
-                lineNumber: 11,
+                lineNumber: 28,
                 columnNumber: 7
             }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {}, void 0, false, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "restaurants-container",
+                children: restaurants.map((restaurant)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                        resData: restaurant.info
+                    }, void 0, false, {
+                        fileName: "App.tsx",
+                        lineNumber: 32,
+                        columnNumber: 20
+                    }, undefined);
+                })
+            }, void 0, false, {
                 fileName: "App.tsx",
-                lineNumber: 12,
+                lineNumber: 29,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "App.tsx",
-        lineNumber: 9,
+        lineNumber: 26,
         columnNumber: 5
     }, undefined);
 };
+_s(App, "LgVB+C0KJTtuCEbyaXmBAd2+4TQ=");
 _c = App;
 const root = (0, _clientDefault.default).createRoot(document.getElementById("root"));
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "App.tsx",
-        lineNumber: 20,
+        lineNumber: 56,
         columnNumber: 5
     }, undefined)
 }, void 0, false, {
     fileName: "App.tsx",
-    lineNumber: 19,
+    lineNumber: 55,
     columnNumber: 3
 }, undefined));
 var _c;
@@ -27527,17 +27555,16 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
-var _restaurantCardJpg = require("../assets/restaurantCard.jpg");
-var _restaurantCardJpgDefault = parcelHelpers.interopDefault(_restaurantCardJpg);
 var _starRating = require("./StarRating");
 var _starRatingDefault = parcelHelpers.interopDefault(_starRating);
-const RestaurantCart = ()=>{
+const RestaurantCart = ({ resData })=>{
+    console.log("resData", resData);
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "restaurant-card-container",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
                 className: "restaurant-card-image",
-                src: (0, _restaurantCardJpgDefault.default)
+                src: "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData.cloudinaryImageId
             }, void 0, false, {
                 fileName: "components/RestaurantCard.tsx",
                 lineNumber: 8,
@@ -27548,13 +27575,15 @@ const RestaurantCart = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "restaurant-card-title",
-                        children: "Food Lab"
+                        children: resData.name
                     }, void 0, false, {
                         fileName: "components/RestaurantCard.tsx",
                         lineNumber: 10,
                         columnNumber: 11
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _starRatingDefault.default), {}, void 0, false, {
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _starRatingDefault.default), {
+                        rating: resData.avgRating
+                    }, void 0, false, {
                         fileName: "components/RestaurantCard.tsx",
                         lineNumber: 11,
                         columnNumber: 11
@@ -27570,7 +27599,7 @@ const RestaurantCart = ()=>{
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "restaurant-card-cuisines",
-                        children: "Pizza, Burger, Sandwich, Biryano, Chinese"
+                        children: resData.cuisines.join(",")
                     }, void 0, false, {
                         fileName: "components/RestaurantCard.tsx",
                         lineNumber: 14,
@@ -27578,7 +27607,7 @@ const RestaurantCart = ()=>{
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
                         className: "restaurant-card-avg-price",
-                        children: "Rs. 250 for two"
+                        children: resData.costForTwo
                     }, void 0, false, {
                         fileName: "components/RestaurantCard.tsx",
                         lineNumber: 17,
@@ -27607,10 +27636,7 @@ $RefreshReg$(_c, "RestaurantCart");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","../assets/restaurantCard.jpg":"bQZlv","./StarRating":"hEPmM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bQZlv":[function(require,module,exports) {
-module.exports = require("ea7648b8963f963").getBundleURL("2wJmF") + "restaurantCard.5cfaf00d.jpg" + "?" + Date.now();
-
-},{"ea7648b8963f963":"lgJ39"}],"hEPmM":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./StarRating":"hEPmM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"hEPmM":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$0436 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27624,13 +27650,13 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _reactFontawesome = require("@fortawesome/react-fontawesome");
 var _freeSolidSvgIcons = require("@fortawesome/free-solid-svg-icons");
-const StarRating = ()=>{
+const StarRating = ({ rating })=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "star-rating",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                 className: "rating",
-                children: "4.2"
+                children: rating
             }, void 0, false, {
                 fileName: "components/StarRating.tsx",
                 lineNumber: 7,
@@ -27663,7 +27689,7 @@ $RefreshReg$(_c, "StarRating");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@fortawesome/react-fontawesome":"clIT3","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","@fortawesome/free-solid-svg-icons":"5lkdy"}],"clIT3":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@fortawesome/react-fontawesome":"clIT3","@fortawesome/free-solid-svg-icons":"5lkdy","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"clIT3":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "FontAwesomeIcon", ()=>FontAwesomeIcon);
