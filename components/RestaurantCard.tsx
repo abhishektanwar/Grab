@@ -1,8 +1,8 @@
 import React from 'react';
 import StarRating from './StarRating';
 
-const RestaurantCart = ({resData}) => {
-  console.log("resData",resData);
+const RestaurantCard = ({resData}) => {
+
   return (
     <div className="restaurant-card-container">
       <img className="restaurant-card-image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.cloudinaryImageId} />
@@ -22,5 +22,4 @@ const RestaurantCart = ({resData}) => {
   );
 };
 
-export default RestaurantCart;
-{/* <img className="restaurant-card-image" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.cloudinaryImageId} /> */}
+export default RestaurantCard;
