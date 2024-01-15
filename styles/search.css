@@ -1,0 +1,24 @@
+.search-bar-contianer{
+  margin: 1.8rem;
+}
+
+.btn{
+  padding: 0.8rem 1.8rem;
+  font-size: 1.8rem;
+  /* border: none; */
+  cursor: pointer;
+}
+
+.active-btn{
+  background-color: var(--base-background-color);
+}
+
+.input{
+  padding: 0.8rem 1.8rem;
+  font-size: 1.8rem;
+  outline: none;
+}
+
+.input::placeholder{
+  opacity: 0.8;
+}

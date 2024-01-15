@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import RestaurantCart from './components/RestaurantCard';
 import RestaurantsContainer from './components/RestaurantsContainer';
 
 const App = () => {
@@ -10,7 +8,6 @@ const App = () => {
   return (
     <div className='app'>
       <Header />
-      <SearchBar />
       <RestaurantsContainer />
     </div>
   )

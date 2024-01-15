@@ -1,5 +1,6 @@
 @import url('header.css');
 @import url('restaurantCard.css');
+@import url('search.css');
 
 :root{
   --base-background-color:#0ba708b7;

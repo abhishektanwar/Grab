@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import RestaurantCard from './RestaurantCard';
+import SearchBar from './SearchBar';
 
 const RestaurantsContainer = () => {
-  const [restaurants, setRestaurants] = useState([]);
+  const [restaurants, setRestaurants] = useState<[]>([]);
+  const [filteredRestaurants, setFilteredRestaurants] = useState([]);
 
   useEffect(() => {
     fetch(
@@ -12,20 +14,26 @@ const RestaurantsContainer = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        console.log("halwa",data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         setRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+        setFilteredRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
       });
   }, []);
-  if (restaurants.length === 0) {
-    return <div />;
-  }
 
+  const onFilteringRestaurants = (filteredRestaurants) => {
+    setFilteredRestaurants(filteredRestaurants);
+  }
+    
   return (
-    <div className="restaurants-container">
-      {restaurants.map((restaurant) => {
+    <div>
+      <SearchBar restaurants={restaurants} filteredRestaurants={filteredRestaurants} onFilteringRestaurants={onFilteringRestaurants}  />
+      <div className="restaurants-container">
+      {restaurants.length !== 0 && filteredRestaurants.map((restaurant) => {
         return <RestaurantCard resData={restaurant.info} />;
       })}
     </div>
+    </div>
+    
   );
 };
 

@@ -2950,8 +2950,6 @@ var _client = require("react-dom/client");
 var _clientDefault = parcelHelpers.interopDefault(_client);
 var _header = require("./components/Header");
 var _headerDefault = parcelHelpers.interopDefault(_header);
-var _searchBar = require("./components/SearchBar");
-var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _restaurantsContainer = require("./components/RestaurantsContainer");
 var _restaurantsContainerDefault = parcelHelpers.interopDefault(_restaurantsContainer);
 const App = ()=>{
@@ -2960,23 +2958,18 @@ const App = ()=>{
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headerDefault.default), {}, void 0, false, {
                 fileName: "App.tsx",
-                lineNumber: 12,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {}, void 0, false, {
-                fileName: "App.tsx",
-                lineNumber: 13,
+                lineNumber: 10,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantsContainerDefault.default), {}, void 0, false, {
                 fileName: "App.tsx",
-                lineNumber: 14,
+                lineNumber: 11,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "App.tsx",
-        lineNumber: 11,
+        lineNumber: 9,
         columnNumber: 5
     }, undefined);
 };
@@ -2985,12 +2978,12 @@ const root = (0, _clientDefault.default).createRoot(document.getElementById("roo
 root.render(/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactDefault.default).StrictMode, {
     children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(App, {}, void 0, false, {
         fileName: "App.tsx",
-        lineNumber: 22,
+        lineNumber: 19,
         columnNumber: 5
     }, undefined)
 }, void 0, false, {
     fileName: "App.tsx",
-    lineNumber: 21,
+    lineNumber: 18,
     columnNumber: 3
 }, undefined));
 var _c;
@@ -3001,7 +2994,7 @@ $RefreshReg$(_c, "App");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./components/Header":"8yur3","./components/SearchBar":"ffMVR","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./components/RestaurantsContainer":"ks4rn"}],"iTorj":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-dom/client":"lOjBx","./components/Header":"8yur3","./components/RestaurantsContainer":"ks4rn","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"iTorj":[function(require,module,exports) {
 "use strict";
 module.exports = require("ee51401569654d91");
 
@@ -27483,39 +27476,7 @@ function registerExportsForReactRefresh(module1) {
     }
 }
 
-},{"7422ead32dcc1e6b":"786KC"}],"ffMVR":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$e9e3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$e9e3.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-const SearchBar = ()=>{
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "search-bar-contianer",
-        children: "Search Bar"
-    }, void 0, false, {
-        fileName: "components/SearchBar.tsx",
-        lineNumber: 5,
-        columnNumber: 5
-    }, undefined);
-};
-_c = SearchBar;
-exports.default = SearchBar;
-var _c;
-$RefreshReg$(_c, "SearchBar");
-
-  $parcel$ReactRefreshHelpers$e9e3.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"ks4rn":[function(require,module,exports) {
+},{"7422ead32dcc1e6b":"786KC"}],"ks4rn":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3337 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -27529,41 +27490,60 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _restaurantCard = require("./RestaurantCard");
 var _restaurantCardDefault = parcelHelpers.interopDefault(_restaurantCard);
+var _searchBar = require("./SearchBar");
+var _searchBarDefault = parcelHelpers.interopDefault(_searchBar);
 var _s = $RefreshSig$();
 const RestaurantsContainer = ()=>{
     _s();
     const [restaurants, setRestaurants] = (0, _react.useState)([]);
+    const [filteredRestaurants, setFilteredRestaurants] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9942072&lng=77.6666151&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING").then((response)=>{
             return response.json();
         }).then((data)=>{
-            console.log(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+            console.log("halwa", data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
             setRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
+            setFilteredRestaurants(data.data.cards[1].card.card.gridElements.infoWithStyle.restaurants);
         });
     }, []);
-    if (restaurants.length === 0) return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {}, void 0, false, {
-        fileName: "components/RestaurantsContainer.tsx",
-        lineNumber: 20,
-        columnNumber: 12
-    }, undefined);
+    const onFilteringRestaurants = (filteredRestaurants)=>{
+        setFilteredRestaurants(filteredRestaurants);
+    };
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-        className: "restaurants-container",
-        children: restaurants.map((restaurant)=>{
-            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
-                resData: restaurant.info
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _searchBarDefault.default), {
+                restaurants: restaurants,
+                filteredRestaurants: filteredRestaurants,
+                onFilteringRestaurants: onFilteringRestaurants
             }, void 0, false, {
                 fileName: "components/RestaurantsContainer.tsx",
-                lineNumber: 26,
-                columnNumber: 16
-            }, undefined);
-        })
-    }, void 0, false, {
+                lineNumber: 29,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+                className: "restaurants-container",
+                children: restaurants.length !== 0 && filteredRestaurants.map((restaurant)=>{
+                    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _restaurantCardDefault.default), {
+                        resData: restaurant.info
+                    }, void 0, false, {
+                        fileName: "components/RestaurantsContainer.tsx",
+                        lineNumber: 32,
+                        columnNumber: 16
+                    }, undefined);
+                })
+            }, void 0, false, {
+                fileName: "components/RestaurantsContainer.tsx",
+                lineNumber: 30,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
         fileName: "components/RestaurantsContainer.tsx",
-        lineNumber: 24,
+        lineNumber: 28,
         columnNumber: 5
     }, undefined);
 };
-_s(RestaurantsContainer, "UUwaAnmni1jVfIU2TonQ0iTwxYs=");
+_s(RestaurantsContainer, "ydemoCZQ/8PlZsyvBonw3dpcIp4=");
 _c = RestaurantsContainer;
 exports.default = RestaurantsContainer;
 var _c;
@@ -27574,7 +27554,7 @@ $RefreshReg$(_c, "RestaurantsContainer");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./RestaurantCard":"721oM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"721oM":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./RestaurantCard":"721oM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./SearchBar":"ffMVR"}],"721oM":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$aa05 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -53067,6 +53047,137 @@ var icons = {
     faLevelUpAlt: faLevelUpAlt
 };
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}]},["17TFQ","1xC6H","29gdY"], "29gdY", "parcelRequire0ffa")
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"ffMVR":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$e9e3 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$e9e3.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
+const SearchBar = ({ onFilteringRestaurants, restaurants: baseRestaurantsList, filteredRestaurants })=>{
+    _s();
+    const [searchKeyword, setSearchKeyword] = (0, _react.useState)("");
+    const [filter, setFilter] = (0, _react.useState)({
+        topRated: false,
+        search: false
+    });
+    const onFilterClick = (filter)=>{
+        setFilter((prev)=>({
+                ...prev,
+                [filter]: !prev[filter]
+            }));
+    };
+    const filterRestaurantsByTopRated = (restaurants)=>{
+        return filter.topRated ? restaurants.filter((restaurant)=>restaurant.info.avgRating > 4.5) : baseRestaurantsList;
+    };
+    const searchRestaurant = (searchedRestaurantName, restaurants)=>{
+        console.log("searchRestaurant", searchedRestaurantName);
+        return filteredRestaurants.filter((restaurant)=>restaurant.info.name.toLowerCase().includes(searchedRestaurantName.toLowerCase()));
+    };
+    function debounce(func, timeout = 3000) {
+        let timer;
+        return (...args)=>{
+            clearTimeout(timer);
+            timer = setTimeout(()=>{
+                func.apply(this, args);
+            }, timeout);
+        };
+    }
+    const debouncedSearchRestaurant = debounce((searchKeyword, restaurants)=>{
+        const filteredList = searchRestaurant(searchKeyword, restaurants);
+        onFilteringRestaurants(filteredList);
+    }, 300);
+    (0, _react.useEffect)(()=>{
+        // let filteredRestaurants = restaurants;
+        // if(filter.topRated){
+        filteredRestaurants = filterRestaurantsByTopRated(filteredRestaurants);
+        // }
+        onFilteringRestaurants(filteredRestaurants);
+    // setFilter((prev)=>({...prev, "topRated":false}));
+    }, [
+        filter.topRated
+    ]);
+    (0, _react.useEffect)(()=>{
+        if (filter.search) {
+            //   console.log("search keyword",searchKeyword)
+            debouncedSearchRestaurant(searchKeyword, filteredRestaurants);
+            return;
+        }
+        if (!filter.search) onFilteringRestaurants(filteredRestaurants);
+    }, [
+        filter.search,
+        searchKeyword
+    ]);
+    (0, _react.useEffect)(()=>{
+        if (searchKeyword !== "") {
+            console.log("set search keyword to true");
+            setFilter((prev)=>({
+                    ...prev,
+                    search: true
+                }));
+            return;
+        }
+        if (searchKeyword === "") {
+            console.log("set search keyword to false");
+            setFilter((prev)=>({
+                    ...prev,
+                    search: false
+                }));
+            return;
+        }
+    }, [
+        searchKeyword
+    ]);
+    const updateSearchKeyword = (value)=>{
+        setSearchKeyword(value);
+    };
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
+        className: "search-bar-contianer",
+        children: [
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("input", {
+                type: "text",
+                className: "input",
+                placeholder: "Search restaurants...",
+                value: searchKeyword,
+                onChange: (e)=>updateSearchKeyword(e.target.value)
+            }, void 0, false, {
+                fileName: "components/SearchBar.tsx",
+                lineNumber: 88,
+                columnNumber: 7
+            }, undefined),
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("button", {
+                className: `btn ${filter.topRated ? "active-btn" : ""}`,
+                onClick: ()=>onFilterClick("topRated"),
+                children: "Top Rated"
+            }, void 0, false, {
+                fileName: "components/SearchBar.tsx",
+                lineNumber: 89,
+                columnNumber: 7
+            }, undefined)
+        ]
+    }, void 0, true, {
+        fileName: "components/SearchBar.tsx",
+        lineNumber: 87,
+        columnNumber: 5
+    }, undefined);
+};
+_s(SearchBar, "4yCx+OB6UEj/+bOJWqvqqTHJCRk=");
+_c = SearchBar;
+exports.default = SearchBar;
+var _c;
+$RefreshReg$(_c, "SearchBar");
+
+  $parcel$ReactRefreshHelpers$e9e3.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}]},["17TFQ","1xC6H","29gdY"], "29gdY", "parcelRequire0ffa")
 
 //# sourceMappingURL=index.7b5a4fff.js.map
